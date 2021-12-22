@@ -5,43 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
 
     <Button
-        android:id="@+id/button_forgot_password3"
+        android:id="@+id/button_forgot_password4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="226dp"
         android:layout_height="51dp"
-        android:onClick="goToRegister"
-        android:text="@string/go_to_register"
+        android:layout_marginBottom="108dp"
+        android:onClick="goToLogin"
+        android:text="@string/go_to_login"
         android:textAllCaps="false"
         android:textColor="#FF705957"
         app:backgroundTint="#FFF6AD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_forgot_password"
-        app:layout_constraintVertical_bias="0.054">
-
-    </Button>
-
-    <Button
-        android:id="@+id/button_forgot_password"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="226dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="36dp"
-        android:onClick="goToChangePass"
-        android:text="@string/change_my_password"
-        android:textAllCaps="false"
-        android:textColor="#FF705957"
-        app:backgroundTint="#FFF6AD"
-        app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_register_button">
+        app:layout_constraintTop_toBottomOf="@+id/id_register_button"
+        app:layout_constraintVertical_bias="0.463">
 
     </Button>
 
@@ -49,29 +32,55 @@
         android:id="@+id/id_register_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/text_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/id_register_button"
+        app:layout_constraintBottom_toTopOf="@+id/id_register_pass2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:id="@+id/id_register_pass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/password_again"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/id_register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/id_register_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="@string/text_email"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/id_register_pass"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/id_register_name_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/name_surname"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/id_register_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -80,15 +89,15 @@
         android:id="@+id/id_register_button"
         android:layout_width="164dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="228dp"
         android:backgroundTint="#BFABAB"
         android:fontFamily="monospace"
-        android:onClick="login"
-        android:text="@string/text_login"
+        android:onClick="register"
+        android:text="@string/text_register"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

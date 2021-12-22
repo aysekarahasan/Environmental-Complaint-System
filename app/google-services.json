@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "854321126260",
+    "project_id": "environmental-complaint-system",
+    "storage_bucket": "environmental-complaint-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854321126260:android:315e5b84afed5c72ae2a21",
+        "android_client_info": {
+          "package_name": "com.example.cse4086_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854321126260-9rsiav5bfn3f91qpu4q16a5c231nsrpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsJq-aSIqwoBBD_PHtrzw-r9bnivmtS2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854321126260-9rsiav5bfn3f91qpu4q16a5c231nsrpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854321126260:android:4b48fe65fb40a2e2ae2a21",
+        "android_client_info": {
+          "package_name": "com.example.onlinecms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854321126260-9rsiav5bfn3f91qpu4q16a5c231nsrpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsJq-aSIqwoBBD_PHtrzw-r9bnivmtS2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854321126260-9rsiav5bfn3f91qpu4q16a5c231nsrpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
