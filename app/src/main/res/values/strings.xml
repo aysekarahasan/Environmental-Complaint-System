@@ -27,4 +27,7 @@
     <string name="go_to_login">Go to login</string>
     <string name="change_my_password">Change my password</string>
     <string name="go_to_register">Go to register</string>
+    <string name="description">Description</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="post_complaint">Post Complaint</string>
 </resources>
