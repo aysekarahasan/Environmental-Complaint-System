@@ -46,7 +46,7 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference dbReference = db.getReference("Users");
+    private DatabaseReference dbReference = db.getReference("Images");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +91,12 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
                 String image = picture.toString();
 
                 HashMap<String, String> userMap = new HashMap<>();
-
+                Intent intent = getIntent();
+                userMap.put("username", intent.getStringExtra("email"));
                 userMap.put("description", desc);
                 userMap.put("location", location);
                 userMap.put("image", image);
-
-                Intent intent = getIntent();
-                String mail = intent.getStringExtra("email");
-                mail = mail.replace('.', '_');
-                dbReference.child(mail).push().setValue(userMap);
+                dbReference.push().setValue(userMap);
                 Toast.makeText(CreatePostActivity.this, "Complaint is posted", Toast.LENGTH_SHORT).show();
             }
         });

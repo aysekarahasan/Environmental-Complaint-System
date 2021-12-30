@@ -4,6 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".AdminProfileActivity">
 
+    <Button
+        android:id="@+id/id_settings"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#BFABAB"
+        android:fontFamily="monospace"
+        android:onClick="goToSettings"
+        android:text="SETTINGS"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_new_admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/id_new_admin"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#BFABAB"
+        android:fontFamily="monospace"
+        android:onClick="register"
+        android:text="+ NEW ADMIN"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/id_logout"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="#BFABAB"
+        android:fontFamily="monospace"
+        android:onClick="logout"
+        android:text="LOGOUT"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/id_all_complaints"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#BFABAB"
+        android:fontFamily="monospace"
+        android:onClick="getAllPosts"
+        android:text="All Complaints"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+        app:layout_constraintBottom_toTopOf="@+id/id_all_complaints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
