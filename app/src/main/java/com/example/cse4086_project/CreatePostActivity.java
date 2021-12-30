@@ -23,7 +23,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,48 +35,30 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 
-public class CreatePostActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class CreatePostActivity extends AppCompatActivity implements OnMapReadyCallback{
     private ImageView picture;
-    private Button postButton;
     private EditText description;
-    private String latLngToDb;
-    FusedLocationProviderClient client;
+    private String latlngToDB;
     SupportMapFragment mapFragment;
-    private DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("Images");
-    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    GoogleMap googleMap;
 
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private DatabaseReference dbReference = db.getReference("Users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
         setupUI(findViewById(R.id.parent));
-
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
-
-        //Initialize fusedlocationclient
-        client = LocationServices.getFusedLocationProviderClient(this);
-        //Check permissions
-        if (ActivityCompat.checkSelfPermission(CreatePostActivity.this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            //When permission granted
-            //call method
-            getCurrentLocation();
-        }else{
-            //when permission denied
-            //request permission
-            ActivityCompat.requestPermissions(CreatePostActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-        }
-
-        Button pictureButton = (Button) findViewById(R.id.pictureButton);
-        picture = (ImageView) findViewById(R.id.ImageView);
-        postButton = (Button) findViewById(R.id.postButton);
-        description = (EditText) findViewById(R.id.description);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapToDB);
+        Button pictureButton = findViewById(R.id.pictureButton);
+        picture = findViewById(R.id.ImageView);
+        Button postButton = findViewById(R.id.postButton);
+        description = findViewById(R.id.description);
+        Button pickLocationButton = findViewById(R.id.choose_location_button);
 
         pictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,16 +68,22 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
             }
         });
 
+        pickLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ChooseLocationActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String desc = description.getText().toString();
-                String location = latLngToDb;
+                String location = latlngToDB;
                 String image = picture.toString();
 
                 HashMap<String, String> userMap = new HashMap<>();
-                Intent intent = getIntent();
-                userMap.put("username", intent.getStringExtra("email"));
+
                 userMap.put("description", desc);
                 userMap.put("location", location);
                 userMap.put("image", image);
@@ -104,63 +91,26 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
                 Toast.makeText(CreatePostActivity.this, "Complaint is posted", Toast.LENGTH_SHORT).show();
             }
         });
-    }
 
-    private void getCurrentLocation() {
-        //Initialize task location
-        final LatLng[] latLngSend = new LatLng[1];
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        Task<Location> task = client.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(@NonNull Location location) {
-                mapFragment.getMapAsync(new OnMapReadyCallback() {
-                    @Override
-                    public void onMapReady(@NonNull GoogleMap googleMap) {
-                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                        latLngToDb = latLng.toString();
-                        //create marker
-                        MarkerOptions options = new MarkerOptions().position(latLng).title("You are here");
-                        //Zoom map
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                        //add marker on map
-                        googleMap.addMarker(options);
-
-                    }
-                });
-            }
-        });
+        this.mapFragment.getMapAsync(this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-        picture.setImageBitmap(bitmap);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 44) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
-                getCurrentLocation();
-            }
+        if(requestCode == 0){
+            Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+            picture.setImageBitmap(bitmap);
+        }else if(requestCode == 1){
+            String lat = data.getStringExtra("latitude");
+            String lng = data.getStringExtra("longitude");
+            System.out.println("lat :" + lat);
+            System.out.println("lng :" + lng);
+            latlngToDB = lat + "," + lng;
+            LatLng show = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+            googleMap.addMarker(new MarkerOptions().position(show));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(show, 10));
         }
-
-    }
-
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
 
     }
 
@@ -177,7 +127,6 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public void setupUI(View view) {
-
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -187,7 +136,6 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
                 }
             });
         }
-
         //If a layout container, iterate over children and seed recursion.
         if (view instanceof ViewGroup) {
             for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
@@ -195,5 +143,10 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
                 setupUI(innerView);
             }
         }
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        this.googleMap = googleMap;
     }
 }

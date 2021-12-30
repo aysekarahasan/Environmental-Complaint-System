@@ -30,4 +30,6 @@
     <string name="description">Description</string>
     <string name="take_picture">Take Picture</string>
     <string name="post_complaint">Post Complaint</string>
+    <string name="pick_location">Pick Location</string>
+    <string name="confirm_location">Confirm Location</string>
 </resources>

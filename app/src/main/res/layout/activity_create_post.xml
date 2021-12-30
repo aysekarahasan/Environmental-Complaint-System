@@ -57,14 +57,30 @@
                 android:foregroundGravity="center_horizontal"
                 android:src="@mipmap/ic_launcher"
                 tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/choose_location_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/pick_location"
+                />
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/maps"
+                android:id="@+id/mapToDB"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="40dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="40dp"
+                />
+
             <Button
                 android:id="@+id/postButton"
                 android:text="@string/post_complaint"
