@@ -16,7 +16,10 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
-
+        <activity android:name=".ChooseLocationActivity"
+            android:exported="false"/>
+        <activity android:name=".SeePostsActivity"
+            android:exported="false"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD1IH8loUuO-hNeKMIJ1mLqpwQCNrO8Qeo" />
