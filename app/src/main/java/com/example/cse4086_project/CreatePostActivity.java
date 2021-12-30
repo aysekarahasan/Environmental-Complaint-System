@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -35,6 +36,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 
@@ -45,8 +48,9 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
     private String latLngToDb;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
-    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference dbReference = db.getReference("Images");
+    private DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("Images");
+    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
