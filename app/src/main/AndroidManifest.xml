@@ -14,16 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CSE4086_project">
         <activity
+            android:name=".NewPost"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD1IH8loUuO-hNeKMIJ1mLqpwQCNrO8Qeo" />
+
         <activity
             android:name=".PostManager"
             android:exported="false" />
-
         <activity
             android:name=".CreatePostActivity"
             android:exported="false" />

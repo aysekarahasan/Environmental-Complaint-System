@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MotionEvent;
@@ -46,6 +47,7 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
     private Button postButton;
     private EditText description;
     private String latLngToDb;
+    private Uri imageUri;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
     private DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("Images");
@@ -74,10 +76,10 @@ public class CreatePostActivity extends AppCompatActivity implements OnMapReadyC
             ActivityCompat.requestPermissions(CreatePostActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
-        Button pictureButton = (Button) findViewById(R.id.pictureButton);
-        picture = (ImageView) findViewById(R.id.ImageView);
-        postButton = (Button) findViewById(R.id.postButton);
-        description = (EditText) findViewById(R.id.description);
+        Button pictureButton = findViewById(R.id.pictureButton);
+        picture = findViewById(R.id.ImageView);
+        postButton = findViewById(R.id.postButton);
+        description = findViewById(R.id.description);
 
         pictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
