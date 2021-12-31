@@ -32,4 +32,13 @@
     <string name="post_complaint">Post Complaint</string>
     <string name="pick_location">Pick Location</string>
     <string name="confirm_location">Confirm Location</string>
+    <string name="new_password" />
+    <string name="new_password1">New Password</string>
+    <string name="new_password_repeat">New Password Again</string>
+    <string name="new_name_surname">New Name and Surname</string>
+    <string name="change_your_password">Change your password</string>
+    <string name="settings">Settings</string>
+    <string name="change_your_user_name">Change your user name</string>
+    <string name="save">Save</string>
+    <string name="turn_back_page">Turn Back Page</string>
 </resources>

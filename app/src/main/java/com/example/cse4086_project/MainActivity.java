@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), CreatePostActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), AdminProfileActivity.class);
                             intent.putExtra("email", emailAddress);
                             startActivity(intent);
                             Toast.makeText(MainActivity.this, "You logged in successfully!", Toast.LENGTH_SHORT).show();

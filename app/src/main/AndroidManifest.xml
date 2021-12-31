@@ -26,7 +26,12 @@
         <activity
             android:name=".PostManager"
             android:exported="false" />
-
+        <activity
+            android:name=".PasswordChangingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserNameChangingActivity"
+            android:exported="false" />
         <activity
             android:name=".CreatePostActivity"
             android:exported="false" />
