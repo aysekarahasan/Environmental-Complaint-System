@@ -188,12 +188,7 @@ public class NewPost extends AppCompatActivity {
             });
 
             Toast.makeText(NewPost.this, "Image Is Uploaded.", Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(NewPost.this, "Upload Failled.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }).addOnFailureListener(e -> Toast.makeText(NewPost.this, "Upload Failled.", Toast.LENGTH_SHORT).show());
 
     }
 

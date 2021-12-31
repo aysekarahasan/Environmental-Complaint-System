@@ -33,7 +33,7 @@ public class  AdminProfileActivity  extends AppCompatActivity {
     }
 
     public void goToSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+        Intent intent = new Intent(this, AdminProfileActivity.class);
         startActivity(intent);
     }
 
@@ -50,6 +50,5 @@ public class  AdminProfileActivity  extends AppCompatActivity {
         alert.setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss());
         alert.show();
     }
-
 
 }
