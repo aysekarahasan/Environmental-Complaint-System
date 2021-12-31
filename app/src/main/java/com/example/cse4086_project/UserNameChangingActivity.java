@@ -21,7 +21,6 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class UserNameChangingActivity extends AppCompatActivity {
 
-    private EditText userName;
     private EditText newUserName;
     private EditText password;
 
@@ -30,9 +29,8 @@ public class UserNameChangingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_name);
+        setContentView(R.layout.activity_user_name_changing);
 
-        userName = findViewById(R.id.editTextNameSurname);
         newUserName = findViewById(R.id.editTextNewNameSurname);
         password = findViewById(R.id.editTextPassword4);
     }
@@ -42,7 +40,6 @@ public class UserNameChangingActivity extends AppCompatActivity {
     }
 
     public void saveUserNameChanges(View view){
-        String userNameString = userName.getText().toString();
         String newUserNameString = newUserName.getText().toString();
         String passwordString = password.getText().toString();
 
@@ -52,25 +49,26 @@ public class UserNameChangingActivity extends AppCompatActivity {
         if(!passwordString.equals("")){
             AuthCredential credential = EmailAuthProvider.getCredential(email, passwordString);
 
-            user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(newUserNameString).build();
-                        user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    Log.d("Name: ", user.getDisplayName());
-                                    Toast.makeText(UserNameChangingActivity.this, "Name and surname are changed!",Toast.LENGTH_SHORT).show();
-                                    UserNameChangingActivity.super.onBackPressed();
-                                }
-                                else{
-                                    Toast.makeText(UserNameChangingActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-                                }
+            user.reauthenticate(credential).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(newUserNameString).build();
+                    user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Log.d("Name: ", user.getDisplayName());
+                                Toast.makeText(UserNameChangingActivity.this, "Name and surname are changed!",Toast.LENGTH_SHORT).show();
+                                UserNameChangingActivity.super.onBackPressed();
                             }
-                        });
-                    }
+                            else{
+                                Toast.makeText(UserNameChangingActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+
+                else{
+                    Toast.makeText(UserNameChangingActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
                 }
             });
         }

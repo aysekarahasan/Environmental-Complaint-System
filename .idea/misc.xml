@@ -3,7 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.19722222222222222" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.19722222222222222" />
+        <entry key="app/src/main/res/layout/activity_admin_settings.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_create_post.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_logout.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_new_post.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_password_changing.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_post_manager.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.25677083333333334" />
+        <entry key="app/src/main/res/layout/activity_user_name_changing.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_user_post_manager.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_user_posts.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/current_place_menu.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/custom_info_contents.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item.xml" value="0.25677083333333334" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.15833333333333333" />
       </map>
     </option>
   </component>

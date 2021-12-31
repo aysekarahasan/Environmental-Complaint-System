@@ -4,6 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    android:background="@drawable/background3">
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="142dp"
+        android:layout_height="101dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="#5DA5BC"
+        android:onClick="signOutFromSystem"
+        android:text="LOGOUT"
+        app:iconTint="#754242"
+        app:layout_constraintBottom_toTopOf="@+id/button_new_comp2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toEndOf="@+id/button_settings4"
+        app:layout_constraintTop_toBottomOf="@+id/id_user_inf"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <Button
+        android:id="@+id/button_settings6"
+        android:layout_width="133dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="216dp"
+        android:backgroundTint="#033342"
+        android:onClick="openProfileSettings"
+        android:text="SETTINGS"
+        app:iconTint="#754242"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_new_comp2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_new_comp2"
+        android:layout_width="133dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="216dp"
+        android:backgroundTint="#E91E63"
+        android:onClick="createPost"
+        android:text="+COMPLAINT"
+        app:iconTint="#754242"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_mycompaints"
+        android:layout_width="133dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="#673345"
+        android:onClick="showMyPosts"
+        android:text="MY COMPLAINTS"
+        app:iconTint="#754242"
+        app:layout_constraintBottom_toTopOf="@+id/button_settings6"
+        app:layout_constraintEnd_toStartOf="@+id/button_logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_user_inf"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <TextView
+        android:id="@+id/id_user_inf"
+        style="@style/Widget.AppCompat.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        android:textColor="#D6D5C7"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

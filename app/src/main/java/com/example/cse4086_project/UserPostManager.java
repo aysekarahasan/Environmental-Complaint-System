@@ -1,5 +1,6 @@
 package com.example.cse4086_project;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,19 +17,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class   PostManager extends AppCompatActivity {
+public class UserPostManager extends AppCompatActivity {
     RecyclerView recyclerView;
     private MyAdapter adapter;
     private ArrayList<Post> posts;
-    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("test");
-
-
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("test");
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_manager);
+        setContentView(R.layout.activity_user_post_manager);
         recyclerView = findViewById(R.id.id_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -39,20 +40,27 @@ public class   PostManager extends AppCompatActivity {
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String username = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getEmail();
+                    
+
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Post post = data.getValue(Post.class);
-                    posts.add(post);
+                    assert post != null;
+                    if (post.getUsername()!= null && post.getUsername().equals(username)) {
+                        posts.add(post);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
 
 
     }
