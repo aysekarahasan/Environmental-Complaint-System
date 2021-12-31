@@ -21,7 +21,7 @@ public class   PostManager extends AppCompatActivity {
     RecyclerView recyclerView;
     private MyAdapter adapter;
     private ArrayList<Post> posts;
-    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Images");
+    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("test");
 
 
     @Override
