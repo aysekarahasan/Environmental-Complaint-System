@@ -23,7 +23,7 @@ public class  AdminProfileActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
         TextView textView = findViewById(R.id.admin);
-        textView.setText("Welcome "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail() + "!");
+        textView.setText("Welcome "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName() + "!");
 
     }
 

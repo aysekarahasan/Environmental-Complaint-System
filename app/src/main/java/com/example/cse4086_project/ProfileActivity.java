@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         textView = findViewById(R.id.id_user_inf);
-        textView.setText("It's "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail()+"!");
+        textView.setText("It's "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName()+"!");
 
     }
 
