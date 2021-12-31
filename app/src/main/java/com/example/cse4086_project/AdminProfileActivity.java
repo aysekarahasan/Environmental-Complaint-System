@@ -33,7 +33,7 @@ public class  AdminProfileActivity  extends AppCompatActivity {
     }
 
     public void goToSettings(View view) {
-        Intent intent = new Intent(this, AdminProfileActivity.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

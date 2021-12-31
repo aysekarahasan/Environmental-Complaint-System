@@ -2,8 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    android:background="@drawable/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/username_header_layout"
+        android:layout_width="239dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="30dp"
+        android:background="#E1AFC1"
+        android:backgroundTint="#80673AB7"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/username_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="7dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="SETTINGS"
+            android:textAlignment="center"
+            android:textColor="#1A237E"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="333dp"
+        android:layout_height="357dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="141dp"
+        android:background="#E1AFC1"
+        android:backgroundTint="#99E1AFC1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_header_layout">
+
+        <Button
+            android:id="@+id/change_password_button"
+            android:layout_width="273dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="140dp"
+            android:backgroundTint="#673AB7"
+            android:onClick="changePassword"
+            android:text="Change Password"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_user_name_button" />
+
+        <Button
+            android:id="@+id/change_user_name_button"
+            android:layout_width="273dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#673AB7"
+            android:onClick="changeUserName"
+            android:text="Change Username"
+            app:layout_constraintBottom_toTopOf="@+id/change_password_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/back_page_button"
+        android:layout_width="65dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#673AB7"
+        android:breakStrategy="balanced"
+        android:bufferType="normal"
+        android:onClick="previousActivityForSettings"
+        app:icon="?attr/homeAsUpIndicator"
+        app:iconPadding="?attr/listPreferredItemPaddingStart"
+        app:iconTintMode="multiply"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
