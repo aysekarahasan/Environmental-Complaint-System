@@ -26,15 +26,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CSE4086_project.NoActionBar">
+        android:theme="@style/Theme.CSE4086_project">
         <activity
             android:name=".PasswordChangingActivity"
             android:exported="false" />
         <activity
             android:name=".UserNameChangingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NewAdminActivity"
             android:exported="false" />
         <activity
             android:name=".UserPostManager"
@@ -55,7 +52,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD1IH8loUuO-hNeKMIJ1mLqpwQCNrO8Qeo" />
-
+        <activity
+            android:name=".NewAdminActivity"
+            android:parentActivityName=".AdminProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".PostManager"
             android:exported="false"

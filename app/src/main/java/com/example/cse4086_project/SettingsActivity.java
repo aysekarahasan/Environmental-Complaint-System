@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
     private Button changingUserNameButton, changingPasswordButton;
@@ -42,6 +45,11 @@ public class SettingsActivity extends AppCompatActivity {
     public void changeUserName(){
         Intent intent = new Intent(this, UserNameChangingActivity.class);
         startActivity(intent);
+        TextView textView = findViewById(R.id.admin);
+        textView.setText("Welcome "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName()+"!");
+        TextView textView2 = findViewById(R.id.id_user_inf);
+        textView2.setText("It's "+ Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName()+"!");
+
     }
 
     public void changePassword(){

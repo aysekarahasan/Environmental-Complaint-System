@@ -4,47 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/background01"
     android:backgroundTintMode="add"
     tools:context=".NewPost">
 
     <EditText
         android:id="@+id/location_text"
-        android:layout_width="459dp"
-        android:layout_height="51dp"
+        android:layout_width="414dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:backgroundTint="#EFE7E7"
-        android:backgroundTintMode="add"
-        android:drawableTint="@color/white"
-        android:drawableTintMode="add"
         android:fontFamily="sans-serif"
-        android:foregroundTint="#E6D7D7"
-        android:foregroundTintMode="add"
         android:gravity="center_horizontal"
-        android:hint="@string/description"
+        android:hint="Location"
         android:inputType="textMultiLine"
-        android:shadowColor="#D8CFCF"
-        android:textColor="@color/white"
-        android:textColorHighlight="#EDE3E3"
-        android:textColorHint="#E6D1D1"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button_get_location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_get_location"
         android:layout_width="416dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="#033342"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#FF6E9BAF"
         android:text="GET LOCATION"
         app:iconTint="#754242"
         app:layout_constraintBottom_toTopOf="@+id/id_upload5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -52,12 +41,12 @@
         android:layout_width="410dp"
         android:layout_height="90dp"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:hint="@string/description"
         android:inputType="textMultiLine"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,22 +54,23 @@
 
     <Button
         android:id="@+id/id_upload5"
-        android:layout_width="416dp"
-        android:layout_height="65dp"
-        android:backgroundTint="#033342"
+        android:layout_width="415dp"
+        android:layout_height="85dp"
+        android:backgroundTint="#6E9BAF"
         android:text="UPLOAD"
         app:iconTint="#754242"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="248dp"
-        android:layout_height="196dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="256dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
@@ -101,18 +91,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/id_upload"
-        android:layout_width="416dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#033342"
-        android:text="UPLOAD"
-        app:iconTint="#754242"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,9 +38,13 @@ public class NewAdminActivity extends AppCompatActivity {
         String email = NewAdminActivity.this.email.getText().toString();
         String password = NewAdminActivity.this.password.getText().toString();
         String password2 = repeatedPassword.getText().toString();
-        if (email.isEmpty() || name.isEmpty() || password.isEmpty() || !password.equals(password2)) {
+        if (email.isEmpty() || name.isEmpty() || password.isEmpty()|| password2.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter all required information", Toast.LENGTH_LONG).show();
-        } else {
+        }
+        else if(!password.equals(password2)){
+            Toast.makeText(getApplicationContext(), "Your passwords don't match!", Toast.LENGTH_LONG).show();
+        }
+        else {
             if (!email.contains("@admin.com")) {
                 NewAdminActivity.this.email.setError("Invalid email domain!");
 
@@ -56,8 +60,6 @@ public class NewAdminActivity extends AppCompatActivity {
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
                                                 Toast.makeText(getApplicationContext(), "Your profile created successfully", Toast.LENGTH_LONG).show();
-                                                Intent homeActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                                startActivity(homeActivity);
                                                 finish();
                                             }
                                         });
