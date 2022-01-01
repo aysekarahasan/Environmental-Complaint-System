@@ -1,6 +1,5 @@
 package com.example.cse4086_project;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,7 +26,7 @@ public class PasswordChangingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password);
+        setContentView(R.layout.activity_password_changing);
         password = findViewById(R.id.editTextTextPassword);
         newPassword = findViewById(R.id.editTextTextNewPassword);
         newPasswordRepeat = findViewById(R.id.editTextTextNewPasswordRepeat);
@@ -35,7 +34,7 @@ public class PasswordChangingActivity extends AppCompatActivity {
     }
 
     public void previousActivityForPassword(View view){
-        startActivity(new Intent(PasswordChangingActivity.this, SettingsActivity.class));
+        finish();
     }
 
     public void savePasswordChanges(View view){

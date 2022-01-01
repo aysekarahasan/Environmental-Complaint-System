@@ -9,16 +9,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/username_header_layout"
-        android:layout_width="239dp"
-        android:layout_height="68dp"
+        android:layout_width="186dp"
+        android:layout_height="56dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="86dp"
-        android:layout_marginBottom="30dp"
         android:background="#E1AFC1"
         android:backgroundTint="#80673AB7"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -34,7 +33,7 @@
             android:text="SETTINGS"
             android:textAlignment="center"
             android:textColor="#1A237E"
-            android:textSize="40sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,16 +42,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="333dp"
-        android:layout_height="357dp"
+        android:layout_width="331dp"
+        android:layout_height="277dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="79dp"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="141dp"
         android:background="#E1AFC1"
-        android:backgroundTint="#99E1AFC1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#66E1AFC1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_header_layout">
 
@@ -61,28 +59,27 @@
             android:layout_width="273dp"
             android:layout_height="60dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="70dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="140dp"
+            android:layout_marginBottom="55dp"
             android:backgroundTint="#673AB7"
             android:onClick="changePassword"
             android:text="Change Password"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/change_user_name_button" />
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/change_user_name_button"
             android:layout_width="273dp"
             android:layout_height="60dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="59dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginBottom="43dp"
             android:backgroundTint="#673AB7"
             android:onClick="changeUserName"
-            android:text="Change Username"
+            android:text="Change Name and Surname"
             app:layout_constraintBottom_toTopOf="@+id/change_password_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -95,6 +92,9 @@
         android:id="@+id/back_page_button"
         android:layout_width="65dp"
         android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="330dp"
+        android:layout_marginBottom="143dp"
         android:backgroundTint="#673AB7"
         android:breakStrategy="balanced"
         android:bufferType="normal"
@@ -102,8 +102,10 @@
         app:icon="?attr/homeAsUpIndicator"
         app:iconPadding="?attr/listPreferredItemPaddingStart"
         app:iconTintMode="multiply"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

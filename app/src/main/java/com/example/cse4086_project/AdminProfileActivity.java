@@ -37,6 +37,11 @@ public class  AdminProfileActivity  extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addNewAdmin(View view){
+        Intent intent = new Intent(this, NewAdminActivity.class);
+        startActivity(intent);
+    }
+
     public void logout(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(
                 AdminProfileActivity.this);
