@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class   PostManager extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -45,6 +46,7 @@ public class   PostManager extends AppCompatActivity {
                     Post post = data.getValue(Post.class);
                     posts.add(post);
                 }
+                Collections.reverse(posts);
                 adapter.notifyDataSetChanged();
             }
             @Override
